@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 // app.use(express.static(__dirname + '/public'));
 // app.use(express.static("public"));
 // app.use('/css',express.static(__dirname +'/css'));
-express.static(__dirname + '/public')
+app.use(express.static(__dirname + '/public'));
 
 
  
