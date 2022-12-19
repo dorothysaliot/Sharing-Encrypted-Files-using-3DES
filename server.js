@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const bcrypt = require("bcrypt")
 const File = require("./models/File")
 const crypto = require('crypto')
-
+const path = require("path");
 const express = require("express")
 const app = express()
 app.use(express.urlencoded({ extended: true }))
@@ -28,6 +28,11 @@ app.get("/", (req, res) => {
 // app.use(express.static("public"));
 // app.use('/css',express.static(__dirname +'/css'));
 app.use(express.static(__dirname + '/public'));
+
+
+// app.get('/', function (req, res) {
+//   res.sendFile(path.join(__dirname + '/views/index.html'));
+// });
 
 
  
@@ -106,4 +111,4 @@ function decrypt3DES(data, key) {
 
  
  
-app.listen(process.env.PORT)
+app.listen(process.env.PORT || 3000)
