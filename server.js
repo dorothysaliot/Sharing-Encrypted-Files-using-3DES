@@ -9,7 +9,7 @@ const express = require("express")
 const app = express()
 app.use(express.urlencoded({ extended: true }))
 
-const upload = multer({ dest: "uploads" })
+// const upload = multer({ dest: "uploads" })
 const connectDB = require('./config/db')
 connectDB();
 
@@ -34,7 +34,11 @@ app.use(express.static(__dirname + '/public'));
 //   res.sendFile(path.join(__dirname + '/views/index.html'));
 // });
 
-
+const upload = multer({
+    dest: "upload"
+    
+  });
+  
  
 app.post("/upload", upload.single("file"), async (req, res) => {
   const fileData = {
